@@ -9,9 +9,7 @@ let package = Package(
             targets: ["whisper"]),
     ],
     targets: [
-        .target(name: "whisper", dependencies:[]),
-        .target(name: "test-objc", dependencies:["whisper"]),
-        .target(name: "test-swift", dependencies:["whisper"])
+        .target(name: "whisper", dependencies:[])
     ],
     cxxLanguageStandard: CXXLanguageStandard.cxx11
 )
