@@ -9,7 +9,11 @@ let package = Package(
             targets: ["whisper"]),
     ],
     targets: [
-        .target(name: "whisper", dependencies:[])
+        .target(name: "whisper",
+        dependencies: [],
+        cSettings: [
+            .define("GGML_USE_ACCELERATE")
+        ])
     ],
     cxxLanguageStandard: CXXLanguageStandard.cxx11
 )
