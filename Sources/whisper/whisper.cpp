@@ -4429,6 +4429,9 @@ struct whisper_full_params whisper_full_default_params(enum whisper_sampling_str
         /*.n_grammar_rules =*/ 0,
         /*.i_start_rule    =*/ 0,
         /*.grammar_penalty =*/ 100.0f,
+
+        /*.language_detected_callback           =*/ nullptr,
+        /*.language_detected_callback_user_data =*/ nullptr,
     };
 
     switch (strategy) {
@@ -5039,6 +5042,12 @@ int whisper_full_with_state(
         WHISPER_LOG_INFO("%s: auto-detected language: %s (p = %f)\n", __func__, params.language, probs[whisper_lang_id(params.language)]);
         if (params.detect_language) {
             return 0;
+        }
+
+        if (params.language_detected_callback) {
+            params.language_detected_callback(ctx, ctx->state, lang_id, params.language_detected_callback_user_data);
+            params.language_detected_callback = nullptr;
+            params.language_detected_callback_user_data = nullptr;
         }
     }
 
