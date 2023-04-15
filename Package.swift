@@ -12,7 +12,8 @@ let package = Package(
         .target(name: "whisper",
         dependencies: [],
         cSettings: [
-            .define("GGML_USE_ACCELERATE")
+            .define("GGML_USE_ACCELERATE"),
+            .define("WHISPER_USE_COREML")
         ])
     ],
     cxxLanguageStandard: CXXLanguageStandard.cxx11
