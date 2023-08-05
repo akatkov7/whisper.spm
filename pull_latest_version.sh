@@ -11,7 +11,6 @@ cp whisper.cpp/*.c* Sources/whisper
 cp whisper.cpp/*.h Sources/whisper
 cp whisper.cpp/coreml/*.h Sources/whisper/coreml
 cp whisper.cpp/coreml/*.m* Sources/whisper/coreml
-mv Sources/whisper/coreml/whisper-encoder.mm Sources/whisper
 mkdir -p Sources/whisper/include
 mv Sources/whisper/whisper.h Sources/whisper/include
 
