@@ -13,5 +13,6 @@ cp whisper.cpp/coreml/*.h Sources/whisper/coreml
 cp whisper.cpp/coreml/*.m* Sources/whisper/coreml
 mkdir -p Sources/whisper/include
 mv Sources/whisper/whisper.h Sources/whisper/include
+mv Sources/whisper/ggml.h Sources/whisper/include
 
 # TODO: copy version data into Package.swift

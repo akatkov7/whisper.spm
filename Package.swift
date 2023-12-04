@@ -1,8 +1,11 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
     name: "whisper.spm",
+    platforms: [
+        .macOS(.v12), .iOS(.v14),
+    ],
     products: [
         .library(
             name: "whisper",
