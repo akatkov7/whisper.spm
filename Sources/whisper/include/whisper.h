@@ -148,6 +148,7 @@ extern "C" {
     // Allocate (almost) all memory needed for the model.
     // Return NULL on failure
     WHISPER_API struct whisper_context * whisper_init_from_file_with_params  (const char * path_model,              struct whisper_context_params params);
+    WHISPER_API struct whisper_context * whisper_init_from_file_with_params_with_coreml  (const char * path_model,  struct whisper_context_params params, bool use_coreml);
     WHISPER_API struct whisper_context * whisper_init_from_buffer_with_params(void * buffer, size_t buffer_size,    struct whisper_context_params params);
     WHISPER_API struct whisper_context * whisper_init_with_params            (struct whisper_model_loader * loader, struct whisper_context_params params);
 
@@ -183,6 +184,7 @@ extern "C" {
     );
 
     WHISPER_API struct whisper_state * whisper_init_state(struct whisper_context * ctx);
+    WHISPER_API struct whisper_state * whisper_init_state_with_coreml(struct whisper_context * ctx, bool use_coreml);
 
     // Given a context, enable use of OpenVINO for encode inference.
     // model_path: Optional path to OpenVINO encoder IR model. If set to nullptr,
